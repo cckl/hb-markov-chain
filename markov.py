@@ -36,7 +36,7 @@ def make_chains(text_string):
 
 
     for i in range(0, len(split_data) - 1):
-        key = split_data[i], split_data[i+1]
+        key = split_data[i], split_data[i+1]    #default type is tuple
 
         #if key exists, add to existing value
         # value = chains.get(key, []).append(split_data[i+2])
@@ -66,23 +66,93 @@ def make_chains(text_string):
 
 def make_text(chains):
     """Return text from chains."""
-    words = [ ]
-    #('Would', 'you'): ['could', 'could', 'could', 'could', 'like', 'like']
-    # ('you', 'could'): ['you', 'you', 'you', 'you']
+    words = []
+
+
+    first_line = random.choice(list(chains.keys()))
+
+    first_link = random.choice(chains[first_line])
+    words.extend(list(first_line))
+    words.append(first_link)
+
+    print(words)
+
+    newkey = words[-2], words[-1]
+
+    while 
+    words.extend(list(first_line))
+
+    # first_line = first_line + (chains.values())
+
+    # for key, value in chains.items():
+    #     if words == []:
+    #         words.extend(list(key))
+    #     newvalue = random.choice(value)
+    #     words.append(newvalue)
+    #     newkey = words[-2], words[-1]
+    #     key = newkey
+
+    # print(words)
+
+        # newkey = (key[1], newvalue)
+
+        # key = newkey
+
+        # ('Would', 'you'): ['could', 'could', 'could', 'could', 'like', 'like']
+        # ('you', 'could'): ['you', 'you', 'you', 'you']
+        # ('could', 'you'): ['in', 'with', 'in', 'with']
+        # ('you', 'in'): ['a', 'a']
+        # ('in', 'a'): ['house?', 'box?']
+        # ('a', 'house?'): ['Would']
+
+        # Would you like you with a house? Would you a mouse? 
+        # Would you Would you Would you them, eggs and ham? 
+        # Would you Sam I am?
+
+        # Would you could you in a house? Would you a mouse? 
+        # Would you Would you Would you green eggs and ham? 
+        # Would you Sam I am?
+
+
+        # Would you could you could you could you in you in a in a box? 
+        # a house? Would house? Would you you with a with a fox? a mouse? 
+        # Would mouse? Would you a box? Would box? Would you a fox? Would 
+        # fox? Would you you like them, like green eggs green eggs and eggs 
+        # and ham? and ham? Would ham? Would you like them, Sam them, Sam I 
+        # Sam I am?
+
+
+
+
+    #pair key[1] with random list value
+    #find this new pair in old list of tuple keys
+    #repeat 
 
     # ([1]) [randlist] random.choice(chains)
 
-    for key, value in chains.items():
-        newvalue = random.choice(value)
-        newkey = (key[1], newvalue)
-        words.append(newvalue)
-        key = newkey
-        # print(newkey)
+
+    # while loop:
+    # newkey to chains[key]
+
+    # key:you | value:could | key:could | value:you | key:you | value:in 
+
+    # key: you could you in a 
+
+    # for key in chains:
+    #     newvalue = random.choice(chains[key])
+    #     newkey = (key[1], newvalue)
+
+
+        
+
+    #key: [1]    
+    #value: random.choice(value)
+
 
 
     
 
-    return " ".join(words)
+    print(" ".join(words))
 
 
 input_path = "green-eggs.txt"
